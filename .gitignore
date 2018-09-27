@@ -1,6 +1,13 @@
 # Prerequisites
 *.d
 
+runTests
+CMakeCache.txt
+CMakeFiles/
+Makefile
+cmake_install.cmake
+runTests
+
 # Compiled Object files
 *.slo
 *.lo
