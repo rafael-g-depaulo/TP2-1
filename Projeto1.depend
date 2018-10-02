@@ -1,0 +1,88 @@
+# depslib dependency file v1.0
+1538353215 source:c:\users\usuario\desktop\trabalhoedna\projeto1\main.cpp
+	"Classes.h"
+
+1538357054 source:c:\users\usuario\desktop\trabalhoedna\projeto1\src\empregado.cpp
+	"Classes.h"
+
+1538091636 c:\users\usuario\desktop\trabalhoedna\projeto1\include\empregado.h
+	<bits/stdc++.h>
+
+1538357692 source:c:\users\usuario\desktop\trabalhoedna\projeto1\src\auxiliar.cpp
+	"Classes.h"
+
+1538082517 c:\users\usuario\desktop\trabalhoedna\projeto1\include\auxiliar.h
+	"Empregado.h"
+
+1538357698 source:c:\users\usuario\desktop\trabalhoedna\projeto1\src\tecnico.cpp
+	"Classes.h"
+
+1538081588 c:\users\usuario\desktop\trabalhoedna\projeto1\include\tecnico.h
+	"Empregado.h"
+
+1538357695 source:c:\users\usuario\desktop\trabalhoedna\projeto1\src\diretordesetor.cpp
+	"Classes.h"
+
+1538080614 c:\users\usuario\desktop\trabalhoedna\projeto1\include\diretordesetor.h
+	<Empregado.h>
+
+1538082784 c:\users\usuario\desktop\trabalhoedna\projeto1\include\setor.h
+	<bits/stdc++.h>
+
+1538357425 source:c:\users\usuario\desktop\trabalhoedna\projeto1\src\setor.cpp
+	"Classes.h"
+
+1538357109 c:\users\usuario\desktop\trabalhoedna\projeto1\include\classes.h
+	<bits/stdc++.h>
+
+1538357425 source:c:\users\usuario\desktop\trabalhoedna\projeto1\src\profissional.cpp
+	"Classes.h"
+
+1538309900 source:c:\users\usuario\desktop\trabalhoedna\projeto1\src\diretordeoperacoes.cpp
+	"Classes.h"
+
+1538306530 c:\users\usuario\desktop\trabalhoedna\projeto1\include\diretordeoperacoes.h
+	<Classes.h>
+
+1538308253 source:c:\users\usuario\desktop\trabalhoedna\projeto1\src\diretordeexecutivo.cpp
+	"Classes.h"
+
+1538306261 c:\users\usuario\desktop\trabalhoedna\projeto1\include\diretordeexecutivo.h
+	<DiretordeOperacoes.h>
+
+1538353243 source:c:\users\usuario\desktop\trabalhoedna\projeto1\src\empresa.cpp
+	"Classes.h"
+
+1538331932 c:\users\usuario\desktop\trabalhoedna\projeto1\include\empresa.h
+	"Classes.h"
+
+1538353215 source:c:\users\usuario\desktop\projeto1\main.cpp
+	"Classes.h"
+
+1538357109 c:\users\usuario\desktop\projeto1\include\classes.h
+	<bits/stdc++.h>
+
+1538357692 source:c:\users\usuario\desktop\projeto1\src\auxiliar.cpp
+	"Classes.h"
+
+1538358041 source:c:\users\usuario\desktop\projeto1\src\diretordeoperacoes.cpp
+	"Classes.h"
+
+1538357695 source:c:\users\usuario\desktop\projeto1\src\diretordesetor.cpp
+	"Classes.h"
+
+1538357054 source:c:\users\usuario\desktop\projeto1\src\empregado.cpp
+	"Classes.h"
+
+1538353243 source:c:\users\usuario\desktop\projeto1\src\empresa.cpp
+	"Classes.h"
+
+1538357425 source:c:\users\usuario\desktop\projeto1\src\profissional.cpp
+	"Classes.h"
+
+1538357425 source:c:\users\usuario\desktop\projeto1\src\setor.cpp
+	"Classes.h"
+
+1538357698 source:c:\users\usuario\desktop\projeto1\src\tecnico.cpp
+	"Classes.h"
+
