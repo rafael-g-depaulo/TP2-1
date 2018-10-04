@@ -56,10 +56,10 @@
 1538331932 c:\users\usuario\desktop\trabalhoedna\projeto1\include\empresa.h
 	"Classes.h"
 
-1538353215 source:c:\users\usuario\desktop\projeto1\main.cpp
+1538648654 source:c:\users\usuario\desktop\projeto1\main.cpp
 	"Classes.h"
 
-1538357109 c:\users\usuario\desktop\projeto1\include\classes.h
+1538648783 c:\users\usuario\desktop\projeto1\include\classes.h
 	<bits/stdc++.h>
 
 1538357692 source:c:\users\usuario\desktop\projeto1\src\auxiliar.cpp
@@ -71,10 +71,10 @@
 1538357695 source:c:\users\usuario\desktop\projeto1\src\diretordesetor.cpp
 	"Classes.h"
 
-1538357054 source:c:\users\usuario\desktop\projeto1\src\empregado.cpp
+1538645839 source:c:\users\usuario\desktop\projeto1\src\empregado.cpp
 	"Classes.h"
 
-1538353243 source:c:\users\usuario\desktop\projeto1\src\empresa.cpp
+1538647106 source:c:\users\usuario\desktop\projeto1\src\empresa.cpp
 	"Classes.h"
 
 1538357425 source:c:\users\usuario\desktop\projeto1\src\profissional.cpp
@@ -84,5 +84,8 @@
 	"Classes.h"
 
 1538357698 source:c:\users\usuario\desktop\projeto1\src\tecnico.cpp
+	"Classes.h"
+
+1538358118 source:c:\users\usuario\desktop\projeto1\src\diretordeexecutivo.cpp
 	"Classes.h"
 

@@ -903,3 +903,178 @@ Empresa::~Empresa()
             }                                                                   //Por fim eh feito o calculo Funcionarios com mais de 6000 de salario dividido pelo total, assim encontrando a porcentagem de Funcionarios com mais de 6000
             cout << "A porcentagem de empregados que recebem mais de 6 mil contando com vale transporte eh de " <<(maisdeseismil/TotaldeFuncionarios)*100<< "%" << endl; // Multiplica por 100 para ficar mais apresentavel
         }
+
+        string Empresa::EncontrarEmpregado(string id)
+        {
+            int check =0;                                           //Serve para checar se o empregado foi encontrado. Se ele permanecer 0 significa que nao existe empregado com esse ID
+          //Procura todos os funcionarios do setor FINANCAS e se encontra o id deleta o funcionario da database
+            for(int i = 0; i<financas.Auxiliares.size();i++)        //Para cada setor e tipo de empregado os blocos funcionam da seguinte maneira
+            {                                                       //Varre se todas as databases de todos os setores
+                if(financas.Auxiliares[i].Getid() == id)            //Se o Identificador passado se iguala ao objeto empregado sendo analizado
+                {
+                    return financas.Auxiliares[i].Getcargo();
+                }
+            }
+            for(int i = 0; i<financas.Tecnicos.size();i++)          //A mesma logica do primeiro for serve para todos os outros
+            {
+                if(financas.Tecnicos[i].Getid() == id)
+                {                                                                           //TECNICOS
+                return financas.Tecnicos[i].Getcargo();
+                }
+            }
+            for(int i = 0; i<financas.Profissionais.size();i++)
+            {
+                if(financas.Profissionais[i].Getid() == id)
+                {
+                return financas.Profissionais[i].Getcargo();
+                }
+            }
+            for(int i = 0; i<financas.Diretor.size();i++)
+            {
+                if(financas.Diretor[i].Getid() == id)
+                {
+                return financas.Diretor[i].Getcargo();
+                }
+            }
+
+           //Procura todos os funcionarios do setor MARKETING e se encontra o id deleta o funcionario da database-----------------------------------------------------
+
+            for(int i = 0; i<marketing.Auxiliares.size();i++)
+            {
+                 if(marketing.Auxiliares[i].Getid() == id)
+                {
+                return marketing.Auxiliares[i].Getcargo();
+                }
+            }
+            for(int i = 0; i<marketing.Tecnicos.size();i++)
+            {
+                if(marketing.Tecnicos[i].Getid() == id)                                         //TECNICOS
+                {
+                return marketing.Tecnicos[i].Getcargo();
+                }
+            }
+            for(int i = 0; i<marketing.Profissionais.size();i++)
+            {
+                if(marketing.Profissionais[i].Getid() == id)
+                {
+                return marketing.Profissionais[i].Getcargo();
+                }
+            }
+            for(int i = 0; i<marketing.Diretor.size();i++)
+            {
+                if(marketing.Diretor[i].Getid() == id)
+                {
+                return marketing.Diretor[i].Getcargo();
+                }
+            }
+
+            //Procura todos os funcionarios do setor TECNOLOGIA e se encontra o id deleta o funcionario da database-----------------------------------------------------
+
+            for(int i = 0; i<tecnologia.Auxiliares.size();i++)
+            {
+                 if(tecnologia.Auxiliares[i].Getid() == id)
+                {
+                return tecnologia.Auxiliares[i].Getcargo();
+                }
+            }
+            for(int i = 0; i<tecnologia.Tecnicos.size();i++)
+            {
+                if(tecnologia.Tecnicos[i].Getid() == id)                                                        //TECNICOS
+                {
+                return tecnologia.Tecnicos[i].Getcargo();
+                }
+            }
+            for(int i = 0; i<tecnologia.Profissionais.size();i++)
+            {
+                if(tecnologia.Profissionais[i].Getid() == id)
+                {
+                return tecnologia.Profissionais[i].Getcargo();
+                }
+            }
+            for(int i = 0; i<tecnologia.Diretor.size();i++)
+            {
+                if(tecnologia.Diretor[i].Getid() == id)
+                {
+                return tecnologia.Diretor[i].Getcargo();
+                }
+            }
+
+            //Procura todos os funcionarios do setor NORMATIVIDADE e se encontra o id deleta o funcionario da database--------------------------------------------------
+            for(int i = 0; i<normatividade.Auxiliares.size();i++)
+            {
+                 if(normatividade.Auxiliares[i].Getid() == id)
+                {
+                return normatividade.Auxiliares[i].Getcargo();
+                }
+            }
+            for(int i = 0; i<normatividade.Tecnicos.size();i++)
+            {
+                if(normatividade.Tecnicos[i].Getid() == id)                                                 //TECNICOS
+                {
+                return normatividade.Tecnicos[i].Getcargo();
+                }
+            }
+            for(int i = 0; i<normatividade.Profissionais.size();i++)
+            {
+                if(normatividade.Profissionais[i].Getid() == id)
+                {
+                return normatividade.Profissionais[i].Getcargo();
+                }
+            }
+            for(int i = 0; i<normatividade.Diretor.size();i++)
+            {
+                if(normatividade.Diretor[i].Getid() == id)
+                {
+                return normatividade.Diretor[i].Getcargo();
+                }
+            }
+
+            //Procura todos os funcionarios do setor DESIGN e se encontra o id deleta o funcionario da database -----------------------------------------------------------------
+            for(int i = 0; i<design.Auxiliares.size();i++)
+            {
+                 if(design.Auxiliares[i].Getid() == id)
+                {
+                return design.Auxiliares[i].Getcargo();
+                }
+            }
+            for(int i = 0; i<design.Tecnicos.size();i++)
+            {
+                if(design.Tecnicos[i].Getid() == id)                                //TECNICOS
+                {
+                return design.Tecnicos[i].Getcargo();
+                }
+            }
+            for(int i = 0; i<design.Profissionais.size();i++)
+            {
+                if(design.Profissionais[i].Getid() == id)
+                {
+                return design.Profissionais[i].Getcargo();
+                }
+            }
+            for(int i = 0; i<design.Diretor.size();i++)
+            {
+                if(design.Diretor[i].Getid() == id)
+                {
+                return design.Diretor[i].Getcargo();
+                }
+            }
+            for(int i = 0; i<DiretoresdeOperacao.size();i++)        //Fora dos Setores tambem eh checado pois eh possivel deletar Diretores
+            {
+                if(DiretoresdeOperacao[i].Getid() == id)            // A mesma logica eh Seguida
+                {
+                return DiretoresdeOperacao[i].Getcargo();
+                }
+            }
+            for(int i = 0; i<DiretorExecutivo.size();i++)
+            {
+                if(DiretorExecutivo[i].Getid() == id)
+                {
+                return DiretorExecutivo[i].Getcargo();
+                }
+            }
+            if(check == 0)                                                              //Caso nao tenha entrado em nenhum IF de nenhum FOR indicando que nao existe funcionario com o ID escolhido
+            {
+                cout << "Empregado com esse ID nao existe" << endl;                     //Mostra se a mensagem de que o Empregado desse ID nao existe
+                return "";
+            }
+        }

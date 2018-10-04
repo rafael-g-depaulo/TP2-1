@@ -18,27 +18,39 @@ class Empregado                             //A base para todos os tipos de empr
         void Imprime();         // IMPRIME AS INFORMACOES BASICAS DO EMPREGADO PARA CHECAGEM
 
         string Getnome() { return nome; }                   //GETS E SETS SIMPLES PARA TODAS AS VARIAVEIS
-        void Setnome(string val) { nome = val; }
+        void Setnome(string val);
 
         string Getidade() { return idade; }
         void Setidade(string val);                          //SET IDADE FUNCIONA DE MANEIRA DIFERENTE. SE NA DATA DE NASCIMENTO O ANO NAO BATER COM A IDADE O ANO DA DATA DE NASCIMENTO EH "CONCERTADO"
                                                             //CONSIDERA SE DATA ATUAL ONZE E CINQUENTA E NOVE DO ULTIMO DIA DO ANO DE 2018
         string GetdataNasc() { return dataNasc; }
-        void SetdataNasc(string val) { dataNasc = val; }
+        void SetdataNasc(string val);
 
         string GetdataEntradaEmpresa() { return dataEntradaEmpresa; }
-        void SetdataEntradaEmpresa(string val) { dataEntradaEmpresa = val; }
+        void SetdataEntradaEmpresa(string val);
 
         string Getcpf() { return cpf; }
-        void Setcpf(string val) { cpf = val; }
+        void Setcpf(string val);
 
         double Getsalario() { return salario; }
-        void Setsalario(double val) { salario = val; }
+        void Setsalario(double val)
+        {
+            if(val > 0)
+            salario = val;
+            else
+            cout << "Valor de salario digitado invalido" << endl;
+             }
 
         string Getid() { return id; }
         void Setid(string val) { id = val; }
 
-        void Setcargo(string val){cargo = val;}
+        void Setcargo(string val)
+        {
+            if (val == "Auxiliar" || val == "Tecnico" || val == "Profissional" || val == "Diretor de Setor" || val == "Diretor de Operacoes" || val == "Diretor Executivo" )
+            cargo = val;
+            else
+                cout << "Cargo invalido nessa empresa" << endl;
+            }
         string Getcargo() { return cargo; }
 
         Setor* pertence;                                        //Setor ao qual o trabalhador pertence // UTILIZADO PARA VER PROFISSOES POSSIVEIS DEPENDENDO DO CARGO
@@ -159,7 +171,7 @@ class DiretordeOperacoes : public Empregado         //Semelhante ao profissonal 
         string Getprofissao() { return profissao; }
         void Setprofissao(string val,vector<string> val2);
         int CheckProfissao(vector<string> val);
-        void GanharBonus(){Setsalario(Getsalario()*1.02);}
+        void GanharBonus(){this->Setsalario(Getsalario()*1.02);}
 
     protected:
 
@@ -198,6 +210,7 @@ class Empresa
         void DemitirEmpregado(string id);                   //Procura o Id do empregado e deleta ele da database
         void PromoverEmpregado(string id);                  //Move um Funcionario de cargo
         void CalcularPorcentagem();                         //Topico 4 do trabalho encontrar a porcentagem de empregados com 6000 ou mais de salario
+        string EncontrarEmpregado(string val);
 
     protected:
 
