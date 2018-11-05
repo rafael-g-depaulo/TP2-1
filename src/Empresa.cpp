@@ -1,4 +1,4 @@
-#include "Classes.h"
+#include "../include/Classes.h"
 
 Empresa::Empresa():financas("financas","administrador", "contador", "economista")   // Sempre que se constroi uma empresa ela tera esses cinco setores que serao inicializados com seus titulos e as profissoes que
 ,marketing("marketing","comunicador social", "administrador", "mercadologo")        // eles permitem
@@ -18,7 +18,7 @@ Empresa::Empresa():financas("financas","administrador", "contador", "economista"
     Profissoes.push_back("eng. da informacao");
     Profissoes.push_back("normatividade");
     Profissoes.push_back("advocado");
-    Profissoes.push_back("design gráfico");
+    Profissoes.push_back("design grï¿½fico");
     Profissoes.push_back("design multimedia");
     Profissoes.push_back("eng. social");
 
@@ -341,7 +341,7 @@ Empresa::~Empresa()
                 {
                     check = 1;                                  //Marcase que o empregado foi encontrado
                     if(!financas.Tecnicos.empty())              //Checa se Existem Tecnicos no setor pra serem estudados. Leva se em consideracao que eh necessario haver um funcionario de casta maior pra que se possa ser Promovido. Pois esta dito na Expecificacao
-                    {                                           //ascender aos empregados de função sempre que cumpram com ter a profissão adequada (por exemplo um auxiliar pode passar a sertécnico, sempre que tenha estudado um técnico),
+                    {                                           //ascender aos empregados de funï¿½ï¿½o sempre que cumpram com ter a profissï¿½o adequada (por exemplo um auxiliar pode passar a sertï¿½cnico, sempre que tenha estudado um tï¿½cnico),
                 Tecnico novo(financas.Auxiliares[i].Getnome(),financas.Auxiliares[i].Getidade(),financas.Auxiliares[i].GetdataNasc(),financas.Auxiliares[i].Getcpf(),financas.Auxiliares[i].Getid(),financas.Auxiliares[i].GetdataEntradaEmpresa(),"financas","administrador", "contador", "economista");
                 financas.Tecnicos.push_back(novo);              //Se existem tecnicos, cria um novo tecnico com todas as informacoes do Auxiliar sendo promovido mudando salario e Cargo e adiciona ele na database de tecnicos do setor
                 financas.Auxiliares.erase(financas.Auxiliares.begin() + i);     //Deleta as informacoes de Auxiliar dele pois ele nao eh mais um Auxiliar

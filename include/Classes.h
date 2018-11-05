@@ -2,6 +2,7 @@
 #define CLASSES_H
 #include <bits/stdc++.h>                    //Conjunto de bibliotecas em C++           //Creio que tenha todas as bibliotecas padrao e classes gabarito
 using namespace std;
+
 class Setor;                                //Foward Declaration das classes para que outras classes possam ter objetos dela
 class Auxiliar;
 class Tecnico;

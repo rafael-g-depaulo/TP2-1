@@ -1,4 +1,4 @@
-#include "Classes.h"
+#include "../include/Classes.h"
 
 Setor::Setor(){}
 Setor::Setor(string tit, string prof1, string prof2, string prof3) // Inicializa apenas as profissoes que o setor permite e o nome do setor
