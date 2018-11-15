@@ -3,7 +3,7 @@
 
 using namespace EmpresaDois;
 
-bool pegar(EmpresaUm::Empresa& emp1, EmpresaDois::Empresa& emp2, string idEmpregado) {
+bool transferirEmpregado(EmpresaUm::Empresa& emp1, EmpresaDois::Empresa& emp2, string idEmpregado) {
   bool achouEmpregado = false;
   EmpresaUm::Empregado empregado;
 
