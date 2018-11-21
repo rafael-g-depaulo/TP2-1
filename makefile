@@ -10,11 +10,11 @@ SRC_DIR2		= EmpresaDois/src
 OBJ					= $(wildcard *.o)
 
 # all
-all: Auxiliar1 Auxiliar2 DiretordeExecutivo1 DiretordeExecutivo2 DiretordeOperacoes1 DiretordeOperacoes2 DiretordeSetor1 DiretordeSetor2 Empregado1 Empregado2 Empresa1 Empresa2 Profissional1 Profissional2 Setor1 Setor2 Tecnico1 Tecnico2 Pegar clean
+all: Auxiliar1 Auxiliar2 DiretordeExecutivo1 DiretordeExecutivo2 DiretordeOperacoes1 DiretordeOperacoes2 DiretordeSetor1 DiretordeSetor2 Empregado1 Empregado2 Empresa1 Empresa2 Profissional1 Profissional2 Setor1 Setor2 Tecnico1 Tecnico2 TransferirEmpregado clean
 
 # .o's
-Pegar: Pegar.cpp
-	g++ $(FLAGS) -c Pegar.cpp
+TransferirEmpregado: transefirEmpregado.cpp
+	g++ $(FLAGS) -c transefirEmpregado.cpp
 
 Auxiliar1: $(SRC_DIR1)/Auxiliar1.cpp
 	g++ $(FLAGS) -c $(SRC_DIR1)/Auxiliar1.cpp
