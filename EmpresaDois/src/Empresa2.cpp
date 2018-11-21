@@ -1079,5 +1079,6 @@ Empresa::~Empresa()
                 cout << "Empregado com esse ID nao existe" << endl;                     //Mostra se a mensagem de que o Empregado desse ID nao existe
                 return "";
             }
+            return "";
         }
 }

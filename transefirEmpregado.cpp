@@ -7,218 +7,154 @@ bool transferirEmpregado(EmpresaUm::Empresa& emp1, EmpresaDois::Empresa& emp2, s
   bool achouEmpregado = false;
   EmpresaUm::Empregado empregado;
 
-  string nome         = empregado.Getnome();
-  string idade        = empregado.Getidade();
-  string dataNasc     = empregado.GetdataNasc();
-  string CPF          = empregado.Getcpf();
-  string ID           = empregado.Getid();
-  string dataEmpresa  = empregado.GetdataEntradaEmpresa();
-  string titulo       = empregado.pertence->getTitulo();
-  string prof1        = empregado.pertence->getprofissao1();  
-  string prof2        = empregado.pertence->getprofissao2();
-  string prof3        = empregado.pertence->getprofissao3();
-  string cargo        = empregado.Getcargo();
-  float salario       = empregado.Getsalario();
+  //coloca os setores das empresas em vectors
+  vector<vector<EmpresaUm::Auxiliar>> setoresA;
+  vector<vector<EmpresaUm::Profissional>> setoresP;
+  vector<vector<EmpresaUm::Tecnico>> setoresT;
+  vector<vector<EmpresaUm::DiretordeSetor>> setoresD;
+  setoresA.push_back(emp1.financas.Auxiliares);
+  setoresP.push_back(emp1.financas.Profissionais);
+  setoresT.push_back(emp1.financas.Tecnicos);
+  setoresD.push_back(emp1.financas.Diretor);
+  setoresA.push_back(emp1.marketing.Auxiliares);
+  setoresP.push_back(emp1.marketing.Profissionais);
+  setoresT.push_back(emp1.marketing.Tecnicos);
+  setoresD.push_back(emp1.marketing.Diretor);
+  setoresA.push_back(emp1.tecnologia.Auxiliares);
+  setoresP.push_back(emp1.tecnologia.Profissionais);
+  setoresT.push_back(emp1.tecnologia.Tecnicos);
+  setoresD.push_back(emp1.tecnologia.Diretor);
+  setoresA.push_back(emp1.normatividade.Auxiliares);
+  setoresP.push_back(emp1.normatividade.Profissionais);
+  setoresT.push_back(emp1.normatividade.Tecnicos);
+  setoresD.push_back(emp1.normatividade.Diretor);
+  setoresA.push_back(emp1.design.Auxiliares);
+  setoresP.push_back(emp1.design.Profissionais);
+  setoresT.push_back(emp1.design.Tecnicos);
+  setoresD.push_back(emp1.design.Diretor);
 
-  EmpresaDois::Empregado empregadoCopia (nome, idade, dataNasc, CPF, ID, dataEmpresa, titulo, prof1, prof2, prof3, cargo, salario);
+  vector<vector<EmpresaDois::Auxiliar>> setoresA2;
+  vector<vector<EmpresaDois::Profissional>> setoresP2;
+  vector<vector<EmpresaDois::Tecnico>> setoresT2;
+  vector<vector<EmpresaDois::DiretordeSetor>> setoresD2;
+  setoresA2.push_back(emp2.financas.Auxiliares);
+  setoresP2.push_back(emp2.financas.Profissionais);
+  setoresT2.push_back(emp2.financas.Tecnicos);
+  setoresD2.push_back(emp2.financas.Diretor);
+  setoresA2.push_back(emp2.marketing.Auxiliares);
+  setoresP2.push_back(emp2.marketing.Profissionais);
+  setoresT2.push_back(emp2.marketing.Tecnicos);
+  setoresD2.push_back(emp2.marketing.Diretor);
+  setoresA2.push_back(emp2.tecnologia.Auxiliares);
+  setoresP2.push_back(emp2.tecnologia.Profissionais);
+  setoresT2.push_back(emp2.tecnologia.Tecnicos);
+  setoresD2.push_back(emp2.tecnologia.Diretor);
+  setoresA2.push_back(emp2.normatividade.Auxiliares);
+  setoresP2.push_back(emp2.normatividade.Profissionais);
+  setoresT2.push_back(emp2.normatividade.Tecnicos);
+  setoresD2.push_back(emp2.normatividade.Diretor);
+  setoresA2.push_back(emp2.design.Auxiliares);
+  setoresP2.push_back(emp2.design.Profissionais);
+  setoresT2.push_back(emp2.design.Tecnicos);
+  setoresD2.push_back(emp2.design.Diretor);
 
-// procurar pelo empregado no setor de finanças, e colocar ele em emp2 se ele estiver no setor
-  if (!achouEmpregado)
-    for (auto temp : emp1.financas.Auxiliares)
-    if (temp.Getid() == idEmpregado) {
-      achouEmpregado = true;
-      empregado = temp;
-      emp2.financas.Auxiliares.push_back(
-        Auxiliar(nome, idade, dataNasc, CPF, ID, dataEmpresa, titulo, prof1, prof2, prof3)
-      );
+  //para cada setor, procura o funcionário, se encontrar, contrata na empresa dois
+  for(unsigned int i = 0; i < setoresA.size(); i++){
+    if(achouEmpregado) break;
+    for(auto temp : setoresA[i]){
+      if(temp.Getid() == idEmpregado){
+        achouEmpregado = true;
+        empregado = temp;
+        unsigned int j; for(j = 0; j < setoresA2.size(); j++);
+        setoresA2[j].push_back(Auxiliar(
+          empregado.Getnome(),
+          empregado.Getidade(),
+          empregado.GetdataNasc(),
+          empregado.Getcpf(),
+          empregado.Getid(),
+          empregado.GetdataEntradaEmpresa(),
+          empregado.pertence->getTitulo(),
+          empregado.pertence->getprofissao1(),
+          empregado.pertence->getprofissao2(),
+          empregado.pertence->getprofissao3()
+        ));
+      }
     }
-  if (!achouEmpregado)
-    for (auto temp : emp1.financas.Profissionais)
-    if (temp.Getid() == idEmpregado) {
-      achouEmpregado = true;
-      empregado = temp;
-      string emprego = temp.getProfissao();
-      emp2.financas.Profissionais.push_back(
-        Profissional(nome, idade, dataNasc, CPF, ID, dataEmpresa, titulo, prof1, prof2, prof3, emprego, cargo, salario)
-      );
+  }
+  for(unsigned int i = 0; i < setoresP.size(); i++){
+    if(achouEmpregado) break;
+    for(auto temp : setoresP[i]){
+      if(temp.Getid() == idEmpregado){
+        achouEmpregado = true;
+        empregado = temp;
+        unsigned int j; for(j = 0; j < setoresP2.size(); j++);
+        setoresP2[j].push_back(Profissional(
+          empregado.Getnome(),
+          empregado.Getidade(),
+          empregado.GetdataNasc(),
+          empregado.Getcpf(),
+          empregado.Getid(),
+          empregado.GetdataEntradaEmpresa(),
+          empregado.pertence->getTitulo(),
+          empregado.pertence->getprofissao1(),
+          empregado.pertence->getprofissao2(),
+          empregado.pertence->getprofissao3(),
+          temp.getProfissao(),
+          empregado.Getcargo(),
+          empregado.Getsalario()
+        ));
+      }
     }
-  if (!achouEmpregado)
-    for (auto temp : emp1.financas.Tecnicos)
-    if (temp.Getid() == idEmpregado) {
-      achouEmpregado = true;
-      empregado = temp;
-      emp2.financas.Tecnicos.push_back(
-        Tecnico(nome, idade, dataNasc, CPF, ID, dataEmpresa, titulo, prof1, prof2, prof3)
-      );      
+  }
+  for(unsigned int i = 0; i < setoresT.size(); i++){
+    if(achouEmpregado) break;
+    for(auto temp : setoresT[i]){
+      if(temp.Getid() == idEmpregado){
+        achouEmpregado = true;
+        empregado = temp;
+        unsigned int j; for(j = 0; j < setoresT2.size(); j++);
+        setoresT2[j].push_back(Tecnico(
+          empregado.Getnome(),
+          empregado.Getidade(),
+          empregado.GetdataNasc(),
+          empregado.Getcpf(),
+          empregado.Getid(),
+          empregado.GetdataEntradaEmpresa(),
+          empregado.pertence->getTitulo(),
+          empregado.pertence->getprofissao1(),
+          empregado.pertence->getprofissao2(),
+          empregado.pertence->getprofissao3()
+        ));
+      }
     }
-  if (!achouEmpregado)
-    for (auto temp : emp1.financas.Diretor)
-    if (temp.Getid() == idEmpregado) {
-      achouEmpregado = true;
-      empregado = temp;
-      string emprego = temp.getProfissao();
-      emp2.financas.Diretor.push_back(
-        DiretordeSetor(nome, idade, dataNasc, CPF, ID, dataEmpresa, titulo, prof1, prof2, prof3, emprego, cargo, salario)
-      );
+  }
+  for(unsigned int i = 0; i < setoresD.size(); i++){
+    if(achouEmpregado) break;
+    for(auto temp : setoresD[i]){
+      if(temp.Getid() == idEmpregado){
+        achouEmpregado = true;
+        empregado = temp;
+        unsigned int j; for(j = 0; j < setoresD2.size(); j++);
+        setoresD2[j].push_back(DiretordeSetor(
+          empregado.Getnome(),
+          empregado.Getidade(),
+          empregado.GetdataNasc(),
+          empregado.Getcpf(),
+          empregado.Getid(),
+          empregado.GetdataEntradaEmpresa(),
+          empregado.pertence->getTitulo(),
+          empregado.pertence->getprofissao1(),
+          empregado.pertence->getprofissao2(),
+          empregado.pertence->getprofissao3(),
+          temp.getProfissao(),
+          empregado.Getcargo(),
+          empregado.Getsalario()
+        ));
+      }
     }
-// procurar pelo empregado no setor de marketing
-  if (!achouEmpregado)
-    for (auto temp : emp1.marketing.Auxiliares)
-    if (temp.Getid() == idEmpregado) {
-      achouEmpregado = true;
-      empregado = temp;
-      emp2.marketing.Auxiliares.push_back(
-        Auxiliar(nome, idade, dataNasc, CPF, ID, dataEmpresa, titulo, prof1, prof2, prof3)
-      );
-    }
-  if (!achouEmpregado)
-    for (auto temp : emp1.marketing.Profissionais)
-    if (temp.Getid() == idEmpregado) {
-      achouEmpregado = true;
-      empregado = temp;
-      string emprego = temp.getProfissao();
-      emp2.marketing.Profissionais.push_back(
-        Profissional(nome, idade, dataNasc, CPF, ID, dataEmpresa, titulo, prof1, prof2, prof3, emprego, cargo, salario)
-      );
-    }
-  if (!achouEmpregado)
-    for (auto temp : emp1.marketing.Tecnicos)
-    if (temp.Getid() == idEmpregado) {
-      achouEmpregado = true;
-      empregado = temp;
-      emp2.marketing.Tecnicos.push_back(
-        Tecnico(nome, idade, dataNasc, CPF, ID, dataEmpresa, titulo, prof1, prof2, prof3)
-      );  
-    }
-  if (!achouEmpregado)
-    for (auto temp : emp1.marketing.Diretor)
-    if (temp.Getid() == idEmpregado) {
-      achouEmpregado = true;
-      empregado = temp;
-      string emprego = temp.getProfissao();
-      emp2.marketing.Diretor.push_back(
-        DiretordeSetor(nome, idade, dataNasc, CPF, ID, dataEmpresa, titulo, prof1, prof2, prof3, emprego, cargo, salario)
-      );     
-    }
-// procurar pelo empregado no setor de tecnologia
-  if (!achouEmpregado)
-    for (auto temp : emp1.tecnologia.Auxiliares)
-    if (temp.Getid() == idEmpregado) {
-      achouEmpregado = true;
-      empregado = temp;
-      emp2.tecnologia.Auxiliares.push_back(
-        Auxiliar(nome, idade, dataNasc, CPF, ID, dataEmpresa, titulo, prof1, prof2, prof3)
-      );      
-    }
-  if (!achouEmpregado)
-    for (auto temp : emp1.tecnologia.Profissionais)
-    if (temp.Getid() == idEmpregado) {
-      achouEmpregado = true;
-      empregado = temp;
-      string emprego = temp.getProfissao();
-      emp2.tecnologia.Profissionais.push_back(
-        Profissional(nome, idade, dataNasc, CPF, ID, dataEmpresa, titulo, prof1, prof2, prof3, emprego, cargo, salario)
-      );
-    }
-  if (!achouEmpregado)
-    for (auto temp : emp1.tecnologia.Tecnicos)
-    if (temp.Getid() == idEmpregado) {
-      achouEmpregado = true;
-      empregado = temp;
-      emp2.tecnologia.Tecnicos.push_back(
-        Tecnico(nome, idade, dataNasc, CPF, ID, dataEmpresa, titulo, prof1, prof2, prof3)
-      );
-    }
-  if (!achouEmpregado)
-    for (auto temp : emp1.tecnologia.Diretor)
-    if (temp.Getid() == idEmpregado) {
-      achouEmpregado = true;
-      empregado = temp;
-      string emprego = temp.getProfissao();
-      emp2.tecnologia.Diretor.push_back(
-        DiretordeSetor(nome, idade, dataNasc, CPF, ID, dataEmpresa, titulo, prof1, prof2, prof3, emprego, cargo, salario)
-      );
-    }
-// procurar pelo empregado no setor de normatividade
-  if (!achouEmpregado)
-    for (auto temp : emp1.normatividade.Auxiliares)
-    if (temp.Getid() == idEmpregado) {
-      achouEmpregado = true;
-      empregado = temp;
-      emp2.normatividade.Auxiliares.push_back(
-        Auxiliar(nome, idade, dataNasc, CPF, ID, dataEmpresa, titulo, prof1, prof2, prof3)
-      );
-    }
-  if (!achouEmpregado)
-    for (auto temp : emp1.normatividade.Profissionais)
-    if (temp.Getid() == idEmpregado) {
-      achouEmpregado = true;
-      empregado = temp;
-      string emprego = temp.getProfissao();
-      emp2.normatividade.Profissionais.push_back(
-        Profissional(nome, idade, dataNasc, CPF, ID, dataEmpresa, titulo, prof1, prof2, prof3, emprego, cargo, salario)
-      );
-    }
-  if (!achouEmpregado)
-    for (auto temp : emp1.normatividade.Tecnicos)
-    if (temp.Getid() == idEmpregado) {
-      achouEmpregado = true;
-      empregado = temp;
-      emp2.normatividade.Tecnicos.push_back(
-        Tecnico(nome, idade, dataNasc, CPF, ID, dataEmpresa, titulo, prof1, prof2, prof3)
-      );
-    }
-  if (!achouEmpregado)
-    for (auto temp : emp1.normatividade.Diretor)
-    if (temp.Getid() == idEmpregado) {
-      achouEmpregado = true;
-      empregado = temp;
-      string emprego = temp.getProfissao();
-      emp2.normatividade.Diretor.push_back(
-        DiretordeSetor(nome, idade, dataNasc, CPF, ID, dataEmpresa, titulo, prof1, prof2, prof3, emprego, cargo, salario)
-      );
-    }
-// procurar pelo empregado no setor de design
-  if (!achouEmpregado)
-    for (auto temp : emp1.design.Auxiliares)
-    if (temp.Getid() == idEmpregado) {
-      achouEmpregado = true;
-      empregado = temp;
-      emp2.design.Auxiliares.push_back(
-        Auxiliar(nome, idade, dataNasc, CPF, ID, dataEmpresa, titulo, prof1, prof2, prof3)
-      );
-    }
-  if (!achouEmpregado)
-    for (auto temp : emp1.design.Profissionais)
-    if (temp.Getid() == idEmpregado) {
-      achouEmpregado = true;
-      empregado = temp;
-      string emprego = temp.getProfissao();
-      emp2.design.Profissionais.push_back(
-        Profissional(nome, idade, dataNasc, CPF, ID, dataEmpresa, titulo, prof1, prof2, prof3, emprego, cargo, salario)
-      );
-    }
-  if (!achouEmpregado)
-    for (auto temp : emp1.design.Tecnicos)
-    if (temp.Getid() == idEmpregado) {
-      achouEmpregado = true;
-      empregado = temp;
-      emp2.design.Tecnicos.push_back(
-        Tecnico(nome, idade, dataNasc, CPF, ID, dataEmpresa, titulo, prof1, prof2, prof3)
-      );
-    }
-  if (!achouEmpregado)
-    for (auto temp : emp1.design.Diretor)
-    if (temp.Getid() == idEmpregado) {
-      achouEmpregado = true;
-      empregado = temp;
-      string emprego = temp.getProfissao();
-      emp2.design.Diretor.push_back(
-        DiretordeSetor(nome, idade, dataNasc, CPF, ID, dataEmpresa, titulo, prof1, prof2, prof3, emprego, cargo, salario)
-      );
-    }
-
-// se o empregado não for achado, retornar false
+  }
+  
+  //caso tenha falhado
   if (!achouEmpregado)
     return false;
 
